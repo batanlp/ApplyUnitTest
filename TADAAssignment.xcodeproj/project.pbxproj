@@ -50,6 +50,7 @@
 		48B4CA0A272280D600025020 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4CA09272280D600025020 /* MockURLProtocol.swift */; };
 		48B4CA0E2726973800025020 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4CA0D2726973800025020 /* MockURLSession.swift */; };
 		48B4CA132726EE0900025020 /* MainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4CA122726EE0900025020 /* MainViewModelTests.swift */; };
+		48B4CA16272824E700025020 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4CA15272824E700025020 /* CoreDataStack.swift */; };
 		84E0E74D55AD8F1088EC0226 /* Pods_TADAAssignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AE9D840C7FD656AA204B30 /* Pods_TADAAssignment.framework */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +114,7 @@
 		48B4CA09272280D600025020 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		48B4CA0D2726973800025020 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		48B4CA122726EE0900025020 /* MainViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelTests.swift; sourceTree = "<group>"; };
+		48B4CA15272824E700025020 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		6947F86AB0B9A24C522D8C77 /* Pods-TADAAssignment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TADAAssignment.debug.xcconfig"; path = "Target Support Files/Pods-TADAAssignment/Pods-TADAAssignment.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -348,6 +350,7 @@
 		48B4C9E2271818C600025020 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				48B4CA14272824D500025020 /* CoreData */,
 				48B4C9E727181D4600025020 /* CDCoordinateManager.swift */,
 			);
 			path = Database;
@@ -404,6 +407,14 @@
 				48B4CA122726EE0900025020 /* MainViewModelTests.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		48B4CA14272824D500025020 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				48B4CA15272824E700025020 /* CoreDataStack.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		6EA96A7D03CEF3243005272C /* Pods */ = {
@@ -583,6 +594,7 @@
 				48B4C9E12718177A00025020 /* LocalDB.xcdatamodeld in Sources */,
 				48725A5A2714521D004EDE78 /* GoogleMapView.swift in Sources */,
 				48725A48271402A3004EDE78 /* BaseResponse.swift in Sources */,
+				48B4CA16272824E700025020 /* CoreDataStack.swift in Sources */,
 				48725A402713F7C0004EDE78 /* Networking.swift in Sources */,
 				48725A4E271408AF004EDE78 /* UIApplication+Extension.swift in Sources */,
 				48725A45271401D6004EDE78 /* APIManager.swift in Sources */,

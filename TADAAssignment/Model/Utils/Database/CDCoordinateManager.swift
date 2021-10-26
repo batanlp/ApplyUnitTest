@@ -11,36 +11,31 @@ import CoreLocation
 
 class CDCoordinateManager: NSObject {
     
-    static let shared = CDCoordinateManager()
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    var context: NSManagedObjectContext!
+    let managedObjectContext: NSManagedObjectContext
+    let coreDataStack: CoreDataStack
     
-    override fileprivate init() {
+    init(managedObjectContext: NSManagedObjectContext, coreDataStack: CoreDataStack) {
+        self.managedObjectContext = managedObjectContext
+        self.coreDataStack = coreDataStack
     }
     
     func saveCoordinate(locValue: CLLocationCoordinate2D, geoData: GeocodeData) {
-        context = appDelegate.persistentContainer.viewContext
-        let info = CoordinateTADA(context: context)
+        let info = CoordinateTADA(context: managedObjectContext)
         info.latitude = locValue.latitude
         info.longitude = locValue.longitude
         info.desc = "\(geoData.locality ?? "") \(geoData.city ?? "")"
         
-        do {
-            try context.save()
-        } catch {
-            LogManager.shared.logConsole(msg: "Storing data Failed")
-        }
+        coreDataStack.saveContext(managedObjectContext)
     }
     
     func getCoordinatesList() -> [CoordinateTADA]? {
-        context = appDelegate.persistentContainer.viewContext
-        
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "CoordinateTADA")
         request.returnsObjectsAsFaults = false
         do {
-            let result = try context.fetch(request)
+            let result = try managedObjectContext.fetch(request)
             return (result as! [CoordinateTADA]).reversed()
         } catch {
+            
             print("Fetching data Failed")
             return nil
         }

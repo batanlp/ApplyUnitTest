@@ -38,6 +38,8 @@ extension HistorySetCoordinateViewController {
         self.tableView.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9529411765, blue: 0.9568627451, alpha: 1)
         self.tableView.separatorStyle = .none
         
+        self.viewModel.getAllCoordinate()
+        
         btnCancel.backgroundColor = .gray
     }
 }

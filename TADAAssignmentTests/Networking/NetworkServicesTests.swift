@@ -93,13 +93,7 @@ class NetworkServicesTests: XCTestCase {
         
         self.wait(for: [expectation], timeout: 5.0)
     }
-    
-    func testAPIManager_WhenMoveToLocation_SouldCallGetGeocode() {
-        let mockService = MockWebservice()
-        let apiManager = APIManager(networking: sutNetworking)
-        
-    }
-    
+
     func testGetGeoCodeInfo_WhenReceivedSuccessReponse_ReturnSuccess() {
         // Arrange
         let jsonString = "{\"continentCode\":\"Asia\"}"

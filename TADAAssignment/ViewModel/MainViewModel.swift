@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import CoreData
 
 protocol MainViewModelDelegate: NSObjectProtocol {
     func finishGetLocation(locValue: CLLocationCoordinate2D)
@@ -14,8 +15,13 @@ protocol MainViewModelDelegate: NSObjectProtocol {
 
 class MainViewModel: NSObject {
     weak var delegate: MainViewModelDelegate?
-    let locationManager = CLLocationManager()
     
+    private lazy var coreDataStack = CoreDataStack()
+    private lazy var coordinateManager = CDCoordinateManager(
+        managedObjectContext: coreDataStack.mainContext,
+        coreDataStack: coreDataStack)
+    
+    let locationManager = CLLocationManager()
     var geoCodeData: GeocodeData?
     
     override init() {
@@ -23,8 +29,7 @@ class MainViewModel: NSObject {
 }
 
 extension MainViewModel {
-    func getGeocodeInfo(locValue: CLLocationCoordinate2D, onSuccess: (() -> ())?, onError: ((String?) -> ())?) {
-        let apiManager = APIManager()
+    func getGeocodeInfo(apiManager: APIManager = APIManager(), locValue: CLLocationCoordinate2D, onSuccess: (() -> ())?, onError: ((String?) -> ())?) {
         apiManager.getGeocodeInfo(lat: locValue.latitude.description, long: locValue.longitude.description, onSuccess: { response in
             self.geoCodeData = response as? GeocodeData
             onSuccess?()
@@ -33,8 +38,7 @@ extension MainViewModel {
         })
     }
     
-    func getAirQuality(locValue: CLLocationCoordinate2D, onSuccess: ((_ data: Any?) -> ())?, onError: ((String?) -> ())?) {
-        let apiManager = APIManager()
+    func getAirQuality(apiManager: APIManager = APIManager(), locValue: CLLocationCoordinate2D, onSuccess: ((_ data: Any?) -> ())?, onError: ((String?) -> ())?) {
         apiManager.getAirQuality(locValue: locValue, onSuccess: { response in
             onSuccess?(response)
         }, onError: { msg in
@@ -43,7 +47,7 @@ extension MainViewModel {
     }
     
     func saveSearchPoint(locValue: CLLocationCoordinate2D, geoData: GeocodeData) {
-        CDCoordinateManager.shared.saveCoordinate(locValue: locValue, geoData: geoData)
+        coordinateManager.saveCoordinate(locValue: locValue, geoData: geoData)
     }
 }
 

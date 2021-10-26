@@ -17,6 +17,11 @@ protocol GoogleMapViewDelegate: NSObjectProtocol {
 class GoogleMapView: UIView {
     weak var delegate: GoogleMapViewDelegate?
     
+    private lazy var coreDataStack = CoreDataStack()
+    private lazy var coordinateManager = CDCoordinateManager(
+        managedObjectContext: coreDataStack.mainContext,
+        coreDataStack: coreDataStack)
+    
     @IBOutlet var contentView: UIView!
     var mapView: GMSMapView?
     var marker = GMSMarker()
@@ -65,7 +70,7 @@ class GoogleMapView: UIView {
     }
     
     private func isHiddenHistory() -> Bool {
-        let list = CDCoordinateManager.shared.getCoordinatesList()
+        let list = coordinateManager.getCoordinatesList()
         return (list == nil || list?.count == 0)
     }
     
