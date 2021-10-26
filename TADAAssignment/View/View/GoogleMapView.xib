@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GoogleMapView" customModule="TADAAssignment" customModuleProvider="target">
+            <connections>
+                <outlet property="btnHistory" destination="fwQ-9t-yPQ" id="Iqr-HI-IMu"/>
+                <outlet property="btnSet" destination="cw4-hJ-NRK" id="ltP-Xm-2iW"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="SG8-Lo-m1K"/>
+                <outlet property="viewMain" destination="Wpw-hR-7Rw" id="tbz-Uo-DZu"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="456" height="292"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wpw-hR-7Rw">
+                    <rect key="frame" x="0.0" y="0.0" width="456" height="292"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cw4-hJ-NRK">
+                    <rect key="frame" x="380" y="182" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="0Pa-lu-c01"/>
+                        <constraint firstAttribute="width" constant="60" id="jlx-lu-YME"/>
+                    </constraints>
+                    <state key="normal" title="Set">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="clickBtnSet:" destination="-1" eventType="touchUpInside" id="bGw-Yr-N6h"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwQ-9t-yPQ">
+                    <rect key="frame" x="304" y="182" width="60" height="60"/>
+                    <state key="normal" image="ic_history.png"/>
+                    <connections>
+                        <action selector="clickBtnHistory:" destination="-1" eventType="touchUpInside" id="WMr-RK-qcV"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Wpw-hR-7Rw" secondAttribute="trailing" id="6SN-ld-vIA"/>
+                <constraint firstItem="fwQ-9t-yPQ" firstAttribute="centerY" secondItem="cw4-hJ-NRK" secondAttribute="centerY" id="7eh-iL-Kn8"/>
+                <constraint firstItem="fwQ-9t-yPQ" firstAttribute="height" secondItem="cw4-hJ-NRK" secondAttribute="height" id="JUf-za-6eJ"/>
+                <constraint firstItem="fwQ-9t-yPQ" firstAttribute="width" secondItem="cw4-hJ-NRK" secondAttribute="width" id="Lxu-fq-S2A"/>
+                <constraint firstAttribute="trailing" secondItem="cw4-hJ-NRK" secondAttribute="trailing" constant="16" id="PIR-3m-GFz"/>
+                <constraint firstAttribute="bottom" secondItem="Wpw-hR-7Rw" secondAttribute="bottom" id="PRD-k2-9XS"/>
+                <constraint firstItem="cw4-hJ-NRK" firstAttribute="leading" secondItem="fwQ-9t-yPQ" secondAttribute="trailing" constant="16" id="QdQ-xG-3lo"/>
+                <constraint firstItem="Wpw-hR-7Rw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="azF-l9-A29"/>
+                <constraint firstItem="Wpw-hR-7Rw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="shc-t0-pN3"/>
+                <constraint firstAttribute="bottom" secondItem="cw4-hJ-NRK" secondAttribute="bottom" constant="50" id="taT-Y6-VaK"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-172.46376811594203" y="-407.14285714285711"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_history.png" width="400.69564819335938" height="400.69564819335938"/>
+    </resources>
+</document>

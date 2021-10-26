@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LocationInfoView" customModule="TADAAssignment" customModuleProvider="target">
+            <connections>
+                <outlet property="btnBack" destination="6Xf-ag-xzs" id="Js9-Ca-kQg"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="ngs-h3-5DK"/>
+                <outlet property="lbDesc" destination="7eV-Ov-ZO3" id="B6G-MW-vAr"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="511" height="258"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wPX-bW-Iqf">
+                    <rect key="frame" x="0.0" y="0.0" width="511" height="258"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Xf-ag-xzs">
+                    <rect key="frame" x="205.5" y="163" width="100" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="EcP-oP-uVz"/>
+                        <constraint firstAttribute="height" constant="32" id="vYF-gP-gUM"/>
+                    </constraints>
+                    <state key="normal" title="Back">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="clickBackButton:" destination="-1" eventType="touchUpInside" id="91y-wY-1sV"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There are labels displaying information of a and b points including coordinate, name, air quality" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7eV-Ov-ZO3">
+                    <rect key="frame" x="16" y="105.5" width="479" height="33.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="6Xf-ag-xzs" firstAttribute="top" secondItem="7eV-Ov-ZO3" secondAttribute="bottom" constant="24" id="7RJ-zQ-cea"/>
+                <constraint firstAttribute="trailing" secondItem="wPX-bW-Iqf" secondAttribute="trailing" id="DT6-N1-aEy"/>
+                <constraint firstAttribute="bottom" secondItem="wPX-bW-Iqf" secondAttribute="bottom" id="Piz-aA-lI9"/>
+                <constraint firstAttribute="trailing" secondItem="7eV-Ov-ZO3" secondAttribute="trailing" constant="16" id="UQt-dW-IVA"/>
+                <constraint firstItem="6Xf-ag-xzs" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="hxA-Ew-s9b"/>
+                <constraint firstItem="7eV-Ov-ZO3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="pIx-tq-St6"/>
+                <constraint firstItem="wPX-bW-Iqf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="qyw-Zj-4Pv"/>
+                <constraint firstItem="6Xf-ag-xzs" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="50" id="uGe-28-Dng"/>
+                <constraint firstItem="wPX-bW-Iqf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zoR-lF-ODS"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="121.0144927536232" y="-109.82142857142857"/>
+        </view>
+    </objects>
+</document>
