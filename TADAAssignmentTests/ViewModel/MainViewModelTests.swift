@@ -13,17 +13,28 @@ class MainViewModelTests: XCTestCase {
     
     var sutNetworking: Networking!
     
+    var coordinateManager: CDCoordinateManager!
+    var coreDataStack: CoreDataStack!
+    
     override func setUp() {
         let configuration = URLSessionConfiguration.default
         configuration.protocolClasses = [MockURLProtocol.self]
         let urlSession = URLSession(configuration: configuration)
         sutNetworking = Networking(session: urlSession)
+        
+        coreDataStack = TestCoreDataStack()
+        coordinateManager = CDCoordinateManager(
+            managedObjectContext: coreDataStack.mainContext,
+            coreDataStack: coreDataStack)
     }
     
     override func tearDown() {
         sutNetworking = nil
         MockURLProtocol.stub = nil
         MockURLProtocol.error = nil
+        
+        coordinateManager = nil
+        coreDataStack = nil
     }
     
     func testMainViewModel_WhenCallGetGeocodeInfoSuccess_ShouldReturnTrue() {
@@ -106,5 +117,18 @@ class MainViewModelTests: XCTestCase {
             expectation.fulfill()
         })
         self.wait(for: [expectation], timeout: 5.0)
+    }
+    
+    func testMainViewModel_WhenSaveCoordinate_ShouldReturnSuccess() {
+        let latitude = 10.7789241
+        let longitude = 106.6880843
+        let centerMapCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        
+        let sut = MainViewModel()
+        let info = sut.saveSearchPoint(locValue: centerMapCoordinate, geoData: GeocodeData())
+        
+        XCTAssertNotNil(info, "CoordinateTADA should not be nil")
+        XCTAssertNotNil(info.latitude, "CoordinateTADA should not be nil")
+        XCTAssertNotNil(info.longitude, "CoordinateTADA should not be nil")
     }
 }
