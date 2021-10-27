@@ -47,7 +47,7 @@ extension MainViewModel {
     }
     
     func saveSearchPoint(locValue: CLLocationCoordinate2D, geoData: GeocodeData) {
-        coordinateManager.saveCoordinate(locValue: locValue, geoData: geoData)
+        _ = coordinateManager.saveCoordinate(locValue: locValue, geoData: geoData)
     }
 }
 

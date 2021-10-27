@@ -8,21 +8,24 @@
 import UIKit
 
 class GeocodeData: Codable {
-    let latitude: Double?
-    let longitude: Double?
-    let lookupSource: String?
-    let plusCode: String?
-    let localityLanguageRequested: String?
-    let continent: String?
-    let continentCode: String?
-    let countryName: String?
-    let countryCode: String?
-    let principalSubdivision: String?
-    let principalSubdivisionCode: String?
-    let city: String?
-    let locality: String?
-    let postcode: String?
-    let localityInfo: LocalityInfo?
+    var latitude: Double? = 0.0
+    var longitude: Double? = 0
+    var lookupSource: String? = ""
+    var plusCode: String?
+    var localityLanguageRequested: String? = ""
+    var continent: String? = ""
+    var continentCode: String? = ""
+    var countryName: String? = ""
+    var countryCode: String? = ""
+    var principalSubdivision: String? = ""
+    var principalSubdivisionCode: String? = ""
+    var city: String? = ""
+    var locality: String? = ""
+    var postcode: String? = ""
+    var localityInfo: LocalityInfo?
+    init() {
+        
+    }
 }
 
 class LocalityInfo: Codable {

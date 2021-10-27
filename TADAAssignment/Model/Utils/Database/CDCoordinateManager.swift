@@ -19,13 +19,14 @@ class CDCoordinateManager: NSObject {
         self.coreDataStack = coreDataStack
     }
     
-    func saveCoordinate(locValue: CLLocationCoordinate2D, geoData: GeocodeData) {
+    func saveCoordinate(locValue: CLLocationCoordinate2D, geoData: GeocodeData) -> CoordinateTADA {
         let info = CoordinateTADA(context: managedObjectContext)
         info.latitude = locValue.latitude
         info.longitude = locValue.longitude
         info.desc = "\(geoData.locality ?? "") \(geoData.city ?? "")"
         
         coreDataStack.saveContext(managedObjectContext)
+        return info
     }
     
     func getCoordinatesList() -> [CoordinateTADA]? {
@@ -35,9 +36,18 @@ class CDCoordinateManager: NSObject {
             let result = try managedObjectContext.fetch(request)
             return (result as! [CoordinateTADA]).reversed()
         } catch {
-            
             print("Fetching data Failed")
             return nil
         }
+    }
+    
+    func update(_ coordinate: CoordinateTADA) -> CoordinateTADA {
+      coreDataStack.saveContext(managedObjectContext)
+      return coordinate
+    }
+
+    func delete(_ coordinate: CoordinateTADA) {
+      managedObjectContext.delete(coordinate)
+      coreDataStack.saveContext(managedObjectContext)
     }
 }
