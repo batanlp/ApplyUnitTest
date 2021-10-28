@@ -58,6 +58,7 @@
 		48B4CA2527295C4A00025020 /* GoogleMapViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4CA2427295C4A00025020 /* GoogleMapViewTests.swift */; };
 		48B4CA2727295C7700025020 /* LocationInfoViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4CA2627295C7700025020 /* LocationInfoViewTests.swift */; };
 		48B4CA29272A519A00025020 /* MockGoogleMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4CA28272A519A00025020 /* MockGoogleMapViewDelegate.swift */; };
+		48B4CA2B272AAF3700025020 /* ViewControllerInitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4CA2A272AAF3700025020 /* ViewControllerInitData.swift */; };
 		84E0E74D55AD8F1088EC0226 /* Pods_TADAAssignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AE9D840C7FD656AA204B30 /* Pods_TADAAssignment.framework */; };
 /* End PBXBuildFile section */
 
@@ -129,6 +130,7 @@
 		48B4CA2427295C4A00025020 /* GoogleMapViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapViewTests.swift; sourceTree = "<group>"; };
 		48B4CA2627295C7700025020 /* LocationInfoViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInfoViewTests.swift; sourceTree = "<group>"; };
 		48B4CA28272A519A00025020 /* MockGoogleMapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGoogleMapViewDelegate.swift; sourceTree = "<group>"; };
+		48B4CA2A272AAF3700025020 /* ViewControllerInitData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInitData.swift; sourceTree = "<group>"; };
 		6947F86AB0B9A24C522D8C77 /* Pods-TADAAssignment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TADAAssignment.debug.xcconfig"; path = "Target Support Files/Pods-TADAAssignment/Pods-TADAAssignment.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -455,6 +457,7 @@
 			children = (
 				48B4CA2127295BF900025020 /* Views */,
 				48B4CA1E272935FA00025020 /* Controller */,
+				48B4CA2A272AAF3700025020 /* ViewControllerInitData.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -691,6 +694,7 @@
 				48B4CA29272A519A00025020 /* MockGoogleMapViewDelegate.swift in Sources */,
 				48B4CA082721236200025020 /* NetworkServicesTests.swift in Sources */,
 				48B4CA2327295C1700025020 /* SetPointViewTests.swift in Sources */,
+				48B4CA2B272AAF3700025020 /* ViewControllerInitData.swift in Sources */,
 				48B4CA2527295C4A00025020 /* GoogleMapViewTests.swift in Sources */,
 				48B4CA20272939AD00025020 /* MainViewControllerTests.swift in Sources */,
 				48B4CA2727295C7700025020 /* LocationInfoViewTests.swift in Sources */,

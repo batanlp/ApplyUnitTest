@@ -18,6 +18,7 @@ class MainViewControllerTests: XCTestCase {
         storyboard = UIStoryboard(name: "Main", bundle: nil)
         sut = storyboard.instantiateViewController(identifier: "MainViewController") as? MainViewController
         sut?.loadViewIfNeeded()
+        
     }
     
     override func tearDown() {
@@ -30,5 +31,6 @@ class MainViewControllerTests: XCTestCase {
         let _ = try XCTUnwrap(sut.viewGoogleMap, "Missing viewGoogleMap reference")
         let _ = try XCTUnwrap(sut.viewSetPoint, "Missing viewSetPoint reference")
         let _ = try XCTUnwrap(sut.viewResult, "Missing viewResult reference")
+        
     }
 }
