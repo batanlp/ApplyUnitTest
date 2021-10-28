@@ -51,13 +51,7 @@ class SetPointView: UIView {
         btnClear.backgroundColor = .blue
         geoData.removeAll()
     }
-    
-    @IBAction func clickPointA(_ sender: Any) {
-    }
-    
-    @IBAction func clickPointB(_ sender: Any) {
-    }
-    
+
     @IBAction func clickClear(_ sender: Any) {
         self.reset()
     }
@@ -66,22 +60,23 @@ class SetPointView: UIView {
         switch activeIndex {
         case 0:
             lbPointA.text = "\(locValue.latitude.rounded(toPlaces: 6).description), \(locValue.longitude.rounded(toPlaces: 6).description)"
+            self.appendNewLocation(geoData: geoData)
         case 1:
             lbPointB.text = "\(locValue.latitude.rounded(toPlaces: 6).description), \(locValue.longitude.rounded(toPlaces: 6).description)"
+            self.appendNewLocation(geoData: geoData)
         default:
             break
         }
+    }
+}
+
+extension SetPointView {
+    private func appendNewLocation(geoData: GeocodeData) {
         self.geoData.append(geoData)
         activeIndex = activeIndex + 1
         self.setActiveButtons()
     }
     
-    func getCurrentActive() -> Int {
-        return activeIndex
-    }
-}
-
-extension SetPointView {
     func reset() {
         geoData.removeAll()
         lbPointA.text = Globals.MSG_NO_INFORMATION
@@ -94,5 +89,4 @@ extension SetPointView {
         btnPointA.backgroundColor = activeIndex >= 1 ? .blue : .gray
         btnPointB.backgroundColor = activeIndex > 1 ? .blue : .gray
     }
-    
 }

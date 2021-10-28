@@ -30,6 +30,5 @@ class MainViewControllerTests: XCTestCase {
         let _ = try XCTUnwrap(sut.viewGoogleMap, "Missing viewGoogleMap reference")
         let _ = try XCTUnwrap(sut.viewSetPoint, "Missing viewSetPoint reference")
         let _ = try XCTUnwrap(sut.viewResult, "Missing viewResult reference")
-        
     }
 }

@@ -32,9 +32,6 @@
                     <state key="normal" title="A">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
-                    <connections>
-                        <action selector="clickPointA:" destination="-1" eventType="touchUpInside" id="i3c-vF-TnA"/>
-                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ox-6T-fTi">
                     <rect key="frame" x="16" y="72" width="40" height="40"/>
@@ -45,9 +42,6 @@
                     <state key="normal" title="B">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
-                    <connections>
-                        <action selector="clickPointB:" destination="-1" eventType="touchUpInside" id="gys-cr-elS"/>
-                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rI9-7X-gp4">
                     <rect key="frame" x="16" y="128" width="60" height="32"/>

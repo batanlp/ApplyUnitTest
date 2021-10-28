@@ -54,41 +54,34 @@ class GoogleMapViewTests: XCTestCase {
     }
     
     func testGoogleMapView_WhenClickButtonSet_InvokeActionWithDelegate() throws {
-        let _ = try XCTUnwrap(sut.viewGoogleMap, "Missing viewGoogleMap reference")
-        
         let btnSet = sut.viewGoogleMap.btnSet
         btnSet?.sendActions(for: .touchUpInside)
         XCTAssertTrue(mockDelegate.isSetMarkerPointInfoCall)
     }
     
     func testGoolgeMapView_WhenClickButtonHistory_InvokeActionWithDelegate() throws {
-        let _ = try XCTUnwrap(sut.viewGoogleMap, "Missing viewGoogleMap reference")
-        
         let btnHistory = sut.viewGoogleMap.btnHistory
         btnHistory?.sendActions(for: .touchUpInside)
         XCTAssertTrue(mockDelegate.isGotoHistorySetCall)
     }
     
     func testGoogleMapView_WhenUpdateLocation_ShouldMoveToNewCameraView() throws {
-        let _ = try XCTUnwrap(sut.viewGoogleMap, "Missing viewGoogleMap reference")
         sut.viewGoogleMap.updateLocation(locValue: centerMapCoordinate)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
             XCTAssertEqual(self.sut.viewGoogleMap.mapView?.camera.target.latitude, 12.7789241)
         }
     }
     
     func testGoogleMapview_WhenPutMarker_ShouldHaveMarkerAtLocation() throws{
-        let _ = try XCTUnwrap(sut.viewGoogleMap, "Missing viewGoogleMap reference")
         sut.viewGoogleMap.putMarker(locValue: centerMapCoordinate, info: nil)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
             XCTAssertEqual(self.sut.viewGoogleMap.mapView?.camera.target.latitude, 12.7789241)
         }
     }
     
     func testGoogleMapView_WhenGetGeocode_ShouldReturnGeocodeData() throws {
-        let _ = try XCTUnwrap(sut.viewGoogleMap, "Missing viewGoogleMap reference")
         sut.viewGoogleMap.geoData = GeocodeData()
         sut.viewGoogleMap.geoData?.latitude = 12.7789241
         

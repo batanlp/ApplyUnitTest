@@ -69,7 +69,7 @@ extension MainViewController: GoogleMapViewDelegate {
     }
     
     func setMarkerPointInfo(locValue: CLLocationCoordinate2D, geoData: GeocodeData?) {
-        if (self.viewSetPoint.getCurrentActive() == 2) {
+        if (self.viewSetPoint.activeIndex == 2) {
             LogManager.shared.logConsole(msg: "To result screen")
             self.getAirQuality()
         }
