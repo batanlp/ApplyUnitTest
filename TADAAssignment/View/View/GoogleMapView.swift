@@ -10,7 +10,7 @@ import GoogleMaps
 
 protocol GoogleMapViewDelegate: NSObjectProtocol {
     func didEndDragMap(locValue: CLLocationCoordinate2D)
-    func setMarkerPointInfo(locValue: CLLocationCoordinate2D, geoData: GeocodeData)
+    func setMarkerPointInfo(locValue: CLLocationCoordinate2D, geoData: GeocodeData?)
     func gotoHistorySet()
 }
 
@@ -62,7 +62,7 @@ class GoogleMapView: UIView {
     }
     
     @IBAction func clickBtnSet(_ sender: Any) {
-        self.delegate?.setMarkerPointInfo(locValue: self.mapView!.camera.target, geoData: self.geoData!)
+        self.delegate?.setMarkerPointInfo(locValue: self.mapView!.camera.target, geoData: self.geoData)
     }
     
     @IBAction func clickBtnHistory(_ sender: Any) {
@@ -82,23 +82,18 @@ extension GoogleMapView {
         mapView?.animate(to: camera)
     }
     
-    func putMarker(locValue: CLLocationCoordinate2D, info: GeocodeData) {
+    func putMarker(locValue: CLLocationCoordinate2D, info: GeocodeData?) {
         self.geoData = info
         marker.map = nil
         marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: locValue.latitude, longitude: locValue.longitude)
-        marker.title = "\(info.locality ?? "") \(info.city ?? "")"
-        marker.snippet = info.countryName
+        marker.title = "\(info?.locality ?? "") \(info?.city ?? "")"
+        marker.snippet = info?.countryName
         marker.map = mapView
     }
     
     func getGeocode() -> GeocodeData {
         return self.geoData!
-    }
-    
-    func moveToCoordinate(locValue: CLLocationCoordinate2D) {
-        let camera = GMSCameraPosition.camera(withLatitude: locValue.latitude, longitude: locValue.longitude, zoom: Globals.DEFAULT_MAP_ZOOM)
-        mapView?.animate(to: camera)
     }
 }
 

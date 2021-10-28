@@ -53,6 +53,11 @@
 		48B4CA16272824E700025020 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4CA15272824E700025020 /* CoreDataStack.swift */; };
 		48B4CA1A2728329000025020 /* TestCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4CA192728329000025020 /* TestCoreDataStack.swift */; };
 		48B4CA1C272834B300025020 /* CDCoordinateManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4CA1B272834B300025020 /* CDCoordinateManagerTests.swift */; };
+		48B4CA20272939AD00025020 /* MainViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4CA1F272939AD00025020 /* MainViewControllerTests.swift */; };
+		48B4CA2327295C1700025020 /* SetPointViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4CA2227295C1700025020 /* SetPointViewTests.swift */; };
+		48B4CA2527295C4A00025020 /* GoogleMapViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4CA2427295C4A00025020 /* GoogleMapViewTests.swift */; };
+		48B4CA2727295C7700025020 /* LocationInfoViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4CA2627295C7700025020 /* LocationInfoViewTests.swift */; };
+		48B4CA29272A519A00025020 /* MockGoogleMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4CA28272A519A00025020 /* MockGoogleMapViewDelegate.swift */; };
 		84E0E74D55AD8F1088EC0226 /* Pods_TADAAssignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AE9D840C7FD656AA204B30 /* Pods_TADAAssignment.framework */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +124,11 @@
 		48B4CA15272824E700025020 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		48B4CA192728329000025020 /* TestCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoreDataStack.swift; sourceTree = "<group>"; };
 		48B4CA1B272834B300025020 /* CDCoordinateManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDCoordinateManagerTests.swift; sourceTree = "<group>"; };
+		48B4CA1F272939AD00025020 /* MainViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerTests.swift; sourceTree = "<group>"; };
+		48B4CA2227295C1700025020 /* SetPointViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPointViewTests.swift; sourceTree = "<group>"; };
+		48B4CA2427295C4A00025020 /* GoogleMapViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapViewTests.swift; sourceTree = "<group>"; };
+		48B4CA2627295C7700025020 /* LocationInfoViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInfoViewTests.swift; sourceTree = "<group>"; };
+		48B4CA28272A519A00025020 /* MockGoogleMapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGoogleMapViewDelegate.swift; sourceTree = "<group>"; };
 		6947F86AB0B9A24C522D8C77 /* Pods-TADAAssignment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TADAAssignment.debug.xcconfig"; path = "Target Support Files/Pods-TADAAssignment/Pods-TADAAssignment.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -388,6 +398,7 @@
 		48B4C9FD271ECC7E00025020 /* TADAAssignmentTests */ = {
 			isa = PBXGroup;
 			children = (
+				48B4CA1D272935F500025020 /* View */,
 				48B4CA172728320100025020 /* Model */,
 				48B4CA112726EDF700025020 /* ViewModel */,
 				48B4CA062721234800025020 /* Networking */,
@@ -437,6 +448,34 @@
 				48B4CA1B272834B300025020 /* CDCoordinateManagerTests.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		48B4CA1D272935F500025020 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				48B4CA2127295BF900025020 /* Views */,
+				48B4CA1E272935FA00025020 /* Controller */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		48B4CA1E272935FA00025020 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				48B4CA1F272939AD00025020 /* MainViewControllerTests.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		48B4CA2127295BF900025020 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				48B4CA2227295C1700025020 /* SetPointViewTests.swift */,
+				48B4CA2427295C4A00025020 /* GoogleMapViewTests.swift */,
+				48B4CA2627295C7700025020 /* LocationInfoViewTests.swift */,
+				48B4CA28272A519A00025020 /* MockGoogleMapViewDelegate.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		6EA96A7D03CEF3243005272C /* Pods */ = {
@@ -649,7 +688,12 @@
 				48B4CA0A272280D600025020 /* MockURLProtocol.swift in Sources */,
 				48B4CA132726EE0900025020 /* MainViewModelTests.swift in Sources */,
 				48B4CA1C272834B300025020 /* CDCoordinateManagerTests.swift in Sources */,
+				48B4CA29272A519A00025020 /* MockGoogleMapViewDelegate.swift in Sources */,
 				48B4CA082721236200025020 /* NetworkServicesTests.swift in Sources */,
+				48B4CA2327295C1700025020 /* SetPointViewTests.swift in Sources */,
+				48B4CA2527295C4A00025020 /* GoogleMapViewTests.swift in Sources */,
+				48B4CA20272939AD00025020 /* MainViewControllerTests.swift in Sources */,
+				48B4CA2727295C7700025020 /* LocationInfoViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -68,14 +68,14 @@ extension MainViewController: GoogleMapViewDelegate {
         self.finishGetLocation(locValue: locValue)
     }
     
-    func setMarkerPointInfo(locValue: CLLocationCoordinate2D, geoData: GeocodeData) {
+    func setMarkerPointInfo(locValue: CLLocationCoordinate2D, geoData: GeocodeData?) {
         if (self.viewSetPoint.getCurrentActive() == 2) {
             LogManager.shared.logConsole(msg: "To result screen")
             self.getAirQuality()
         }
         else {
-            self.viewSetPoint.setPointValue(locValue : locValue, geoData: geoData)
-            self.viewModel.saveSearchPoint(locValue: locValue, geoData: geoData)
+            self.viewSetPoint.setPointValue(locValue : locValue, geoData: geoData!)
+            _ = self.viewModel.saveSearchPoint(locValue: locValue, geoData: geoData!)
             self.viewGoogleMap.btnHistory.isHidden = false
         }
     }
@@ -92,7 +92,7 @@ extension MainViewController: HistorySetCoordinateViewControllerDelegate {
         let latitude = info.latitude
         let longitude = info.longitude
         let centerMapCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        self.viewGoogleMap.moveToCoordinate(locValue: centerMapCoordinate)
+        self.viewGoogleMap.updateLocation(locValue: centerMapCoordinate)
     }
 }
 

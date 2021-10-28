@@ -39,7 +39,7 @@ class CDCoordinateManagerTests: XCTestCase {
         XCTAssertNotNil(info.longitude, "CoordinateTADA should not be nil")
     }
     
-    func testCoordinateManage_ContextIsSavedWhenAddNewCoordinateAsync_ShouldReturnSuccess() {
+    func testCoordinateManager_ContextIsSavedWhenAddNewCoordinateAsync_ShouldReturnSuccess() {
         let coordinateContext = coreDataStack.newDerivedContext()
         coordinateManager = CDCoordinateManager(
             managedObjectContext: coordinateContext,
