@@ -30,12 +30,9 @@ class SetPointViewTests: XCTestCase {
         let _ = try XCTUnwrap(initData.sutMainViewController.viewSetPoint.btnClear, "Missing btnClear reference")
         let _ = try XCTUnwrap(initData.sutMainViewController.viewSetPoint.lbPointA, "Missing lbPointA reference")
         let _ = try XCTUnwrap(initData.sutMainViewController.viewSetPoint.lbPointB, "Missing lbPointB reference")
-        let _ = initData.sutMainViewController.viewSetPoint.btnPointA
-        let _ = initData.sutMainViewController.viewSetPoint.btnPointB
-        let btnClear = initData.sutMainViewController.viewSetPoint.btnClear
-        let _ = initData.sutMainViewController.viewSetPoint.lbPointA
-        let _ = initData.sutMainViewController.viewSetPoint.lbPointB
         
+        let btnClear = initData.sutMainViewController.viewSetPoint.btnClear
+    
         let action = btnClear?.actions(forTarget: initData.sutMainViewController.viewSetPoint, forControlEvent: .touchUpInside)
         XCTAssertEqual(action?.count, 1)
         XCTAssertTrue(action!.contains("clickClear:"))

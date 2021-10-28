@@ -8,15 +8,15 @@
 import Foundation
 
 class AirQualityData: Codable {
-    let aqi: Int?
-    let idx: Int?
-    let attributions: [Attributions]?
-    let city: CityObject?
-    let dominentpol: String?
-    let iaqi: IAQI?
-    let time: TimeValue?
-    let forecast: Forecast?
-    let debug: DebugObject?
+    var aqi: Int? = 0
+    var idx: Int?
+    var attributions: [Attributions]?
+    var city: CityObject?
+    var dominentpol: String?
+    var iaqi: IAQI?
+    var time: TimeValue?
+    var forecast: Forecast?
+    var debug: DebugObject?
 }
 
 class DebugObject: Codable {

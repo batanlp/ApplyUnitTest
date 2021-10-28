@@ -26,3 +26,11 @@ class MockGoogleMapViewDelegate: NSObject, GoogleMapViewDelegate {
         isGotoHistorySetCall = true
     }
 }
+
+class MockLocationInfoViewDelegate: NSObject, LocationInfoViewDelegate {
+    var isBackCall: Bool = false
+    
+    func back() {
+        isBackCall = true
+    }
+}

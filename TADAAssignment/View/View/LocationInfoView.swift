@@ -76,6 +76,10 @@ class LocationInfoView: UIView {
         }
     }
     
+    func getDescDetail(index: Int) -> String {
+        return locationDetailText[index]
+    }
+    
     func setFullInformation() {
         self.lbDesc.text = "\(locationDetailText[0])\n\n\(locationDetailText[1])"
     }

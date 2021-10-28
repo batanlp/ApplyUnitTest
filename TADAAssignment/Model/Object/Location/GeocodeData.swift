@@ -22,26 +22,26 @@ class GeocodeData: Codable {
     var city: String? = ""
     var locality: String? = ""
     var postcode: String? = ""
-    var localityInfo: LocalityInfo?
+    var localityInfo: LocalityInfo? = LocalityInfo()
     init() {
         
     }
 }
 
 class LocalityInfo: Codable {
-    let administrative: [Administrative]?
-    let informative: [Informative]?
+    var administrative: [Administrative]? = [Administrative]()
+    var informative: [Informative]?
 }
 
 class Administrative: Codable {
-    let order: Int?
-    let adminLevel: Int?
-    let name: String?
-    let description: String?
-    let isoName: String?
-    let isoCode: String?
-    let wikidataId: String?
-    let geonameId: Int?
+    var order: Int?
+    var adminLevel: Int?
+    var name: String?
+    var description: String?
+    var isoName: String?
+    var isoCode: String?
+    var wikidataId: String?
+    var geonameId: Int?
 }
 
 class Informative: Codable {
