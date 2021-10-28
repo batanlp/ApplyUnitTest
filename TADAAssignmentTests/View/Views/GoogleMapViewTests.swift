@@ -13,6 +13,7 @@ class GoogleMapViewTests: XCTestCase {
     var storyboard: UIStoryboard!
     var sut: MainViewController!
     var mockDelegate: MockGoogleMapViewDelegate!
+    var centerMapCoordinate: CLLocationCoordinate2D!
     
     override func setUp() {
         super.setUp()
@@ -20,6 +21,10 @@ class GoogleMapViewTests: XCTestCase {
         storyboard = UIStoryboard(name: "Main", bundle: nil)
         sut = storyboard.instantiateViewController(identifier: "MainViewController") as? MainViewController
         sut?.loadViewIfNeeded()
+        
+        let latitude = 12.7789241
+        let longitude = 106.6880843
+        centerMapCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         
         mockDelegate = MockGoogleMapViewDelegate()
         sut.viewGoogleMap.delegate = mockDelegate
@@ -30,6 +35,7 @@ class GoogleMapViewTests: XCTestCase {
         storyboard = nil
         sut = nil
         mockDelegate = nil
+        centerMapCoordinate = nil
     }
     
     func testGoogleMapView_WhenCreate_AllButtonHaveAction() throws {
@@ -65,10 +71,6 @@ class GoogleMapViewTests: XCTestCase {
     
     func testGoogleMapView_WhenUpdateLocation_ShouldMoveToNewCameraView() throws {
         let _ = try XCTUnwrap(sut.viewGoogleMap, "Missing viewGoogleMap reference")
-        
-        let latitude = 12.7789241
-        let longitude = 106.6880843
-        let centerMapCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         sut.viewGoogleMap.updateLocation(locValue: centerMapCoordinate)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
@@ -78,10 +80,6 @@ class GoogleMapViewTests: XCTestCase {
     
     func testGoogleMapview_WhenPutMarker_ShouldHaveMarkerAtLocation() throws{
         let _ = try XCTUnwrap(sut.viewGoogleMap, "Missing viewGoogleMap reference")
-        let latitude = 12.7789241
-        let longitude = 106.6880843
-        let centerMapCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        
         sut.viewGoogleMap.putMarker(locValue: centerMapCoordinate, info: nil)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
