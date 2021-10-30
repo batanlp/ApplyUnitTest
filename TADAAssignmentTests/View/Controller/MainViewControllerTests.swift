@@ -9,28 +9,32 @@ import XCTest
 @testable import TADAAssignment
 
 class MainViewControllerTests: XCTestCase {
-    
-    var storyboard: UIStoryboard!
-    var sut: MainViewController!
+
+    var initData: ViewControllerInitData!
 
     override func setUp() {
         super.setUp()
-        storyboard = UIStoryboard(name: "Main", bundle: nil)
-        sut = storyboard.instantiateViewController(identifier: "MainViewController") as? MainViewController
-        sut?.loadViewIfNeeded()
-        
+        initData = ViewControllerInitData()
+        initData.loadMainViewController()
     }
     
     override func tearDown() {
         super.tearDown()
-        storyboard = nil
-        sut = nil
+        initData = nil
     }
     
     func testMainViewController_WhenCreated_IBOutletShouldHaveReference() throws {
-        let _ = try XCTUnwrap(sut.viewGoogleMap, "Missing viewGoogleMap reference")
-        let _ = try XCTUnwrap(sut.viewSetPoint, "Missing viewSetPoint reference")
-        let _ = try XCTUnwrap(sut.viewResult, "Missing viewResult reference")
-        
+        let _ = try XCTUnwrap(initData.sutMainViewController.viewGoogleMap, "Missing viewGoogleMap reference")
+        let _ = try XCTUnwrap(initData.sutMainViewController.viewSetPoint, "Missing viewSetPoint reference")
+        let _ = try XCTUnwrap(initData.sutMainViewController.viewResult, "Missing viewResult reference")
+    }
+    
+    func testMainViewController_SetPoint() {
+        initData.sutMainViewController.viewSetPoint.geoData.removeAll()
+        let mock = MockData()
+        initData.sutMainViewController.viewSetPoint.geoData.append(mock.geoData)
+        initData.sutMainViewController.viewSetPoint.geoData.append(mock.geoData)
+        initData.sutMainViewController.viewSetPoint.activeIndex = 2
+        initData.sutMainViewController.setMarkerPointInfo(locValue: initData.centerMapCoordinate, geoData: mock.geoData)
     }
 }

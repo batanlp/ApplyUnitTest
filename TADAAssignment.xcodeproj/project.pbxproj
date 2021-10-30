@@ -60,6 +60,7 @@
 		48B4CA29272A519A00025020 /* MockDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4CA28272A519A00025020 /* MockDelegate.swift */; };
 		48B4CA2B272AAF3700025020 /* ViewControllerInitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4CA2A272AAF3700025020 /* ViewControllerInitData.swift */; };
 		48B4CA2E272AC99900025020 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4CA2D272AC99900025020 /* MockData.swift */; };
+		48B4CA30272BB45000025020 /* MockLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4CA2F272BB45000025020 /* MockLocationManager.swift */; };
 		84E0E74D55AD8F1088EC0226 /* Pods_TADAAssignment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AE9D840C7FD656AA204B30 /* Pods_TADAAssignment.framework */; };
 /* End PBXBuildFile section */
 
@@ -133,6 +134,7 @@
 		48B4CA28272A519A00025020 /* MockDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDelegate.swift; sourceTree = "<group>"; };
 		48B4CA2A272AAF3700025020 /* ViewControllerInitData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerInitData.swift; sourceTree = "<group>"; };
 		48B4CA2D272AC99900025020 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		48B4CA2F272BB45000025020 /* MockLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationManager.swift; sourceTree = "<group>"; };
 		6947F86AB0B9A24C522D8C77 /* Pods-TADAAssignment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TADAAssignment.debug.xcconfig"; path = "Target Support Files/Pods-TADAAssignment/Pods-TADAAssignment.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -488,6 +490,7 @@
 			isa = PBXGroup;
 			children = (
 				48B4CA2D272AC99900025020 /* MockData.swift */,
+				48B4CA2F272BB45000025020 /* MockLocationManager.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -706,6 +709,7 @@
 				48B4CA29272A519A00025020 /* MockDelegate.swift in Sources */,
 				48B4CA082721236200025020 /* NetworkServicesTests.swift in Sources */,
 				48B4CA2327295C1700025020 /* SetPointViewTests.swift in Sources */,
+				48B4CA30272BB45000025020 /* MockLocationManager.swift in Sources */,
 				48B4CA2B272AAF3700025020 /* ViewControllerInitData.swift in Sources */,
 				48B4CA2527295C4A00025020 /* GoogleMapViewTests.swift in Sources */,
 				48B4CA20272939AD00025020 /* MainViewControllerTests.swift in Sources */,

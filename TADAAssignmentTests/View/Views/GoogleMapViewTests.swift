@@ -7,6 +7,7 @@
 
 import XCTest
 import CoreLocation
+import GoogleMaps
 @testable import TADAAssignment
 
 class GoogleMapViewTests: XCTestCase {
@@ -56,6 +57,15 @@ class GoogleMapViewTests: XCTestCase {
     }
     
     func testGoogleMapView_WhenUpdateLocation_ShouldMoveToNewCameraView() throws {
+        /*
+        class MockGMSMapViewDelegate: NSObject, GMSMapViewDelegate {
+            func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+                XCTAssertEqual(mapView.camera.target.latitude, 12.7789241)
+            }
+        }
+        let mocDelegate = MockGMSMapViewDelegate()
+        initData.sutMainViewController.viewGoogleMap.mapView?.delegate = mocDelegate
+ */
         initData.sutMainViewController.viewGoogleMap.updateLocation(locValue: initData.centerMapCoordinate)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
@@ -63,9 +73,8 @@ class GoogleMapViewTests: XCTestCase {
         }
     }
     
-    func testGoogleMapview_WhenPutMarker_ShouldHaveMarkerAtLocation() throws{
+    func testGoogleMapview_WhenPutMarker_ShouldHaveMarkerAtLocation() throws {
         initData.sutMainViewController.viewGoogleMap.putMarker(locValue: initData.centerMapCoordinate, info: nil)
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
             XCTAssertEqual(self.initData.sutMainViewController.viewGoogleMap.mapView?.camera.target.latitude, 12.7789241)
         }

@@ -9,6 +9,7 @@ import UIKit
 import CoreLocation
 import CoreData
 
+
 protocol MainViewModelDelegate: NSObjectProtocol {
     func finishGetLocation(locValue: CLLocationCoordinate2D)
 }
@@ -24,7 +25,8 @@ class MainViewModel: NSObject {
     let locationManager = CLLocationManager()
     var geoCodeData: GeocodeData?
     
-    override init() {
+    required init(delegate: MainViewModelDelegate?) {
+        self.delegate = delegate
     }
 }
 

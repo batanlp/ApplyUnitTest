@@ -10,7 +10,7 @@ import CoreLocation
 
 class MainViewController: BaseViewController {
     
-    let viewModel = MainViewModel()
+    var viewModel: MainViewModel!
     @IBOutlet weak var viewGoogleMap: GoogleMapView!
     @IBOutlet weak var viewSetPoint: SetPointView!
     @IBOutlet weak var viewResult: LocationInfoView!
@@ -18,7 +18,7 @@ class MainViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initValue()
-        self.viewModel.delegate = self
+        viewModel = MainViewModel(delegate: self)
         self.viewModel.detectLocation()
     }
 }
@@ -44,7 +44,6 @@ extension MainViewController {
                 self.viewResult.setLocationInformation(index: index, airData: data as! AirQualityData, geoData: self.viewSetPoint.geoData[index])
                 group.leave()
             }, onError: { msg in
-                
             })
         }
         group.notify(queue: .main, execute: {

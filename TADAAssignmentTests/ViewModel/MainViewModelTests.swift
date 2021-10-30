@@ -41,7 +41,7 @@ class MainViewModelTests: XCTestCase {
         let jsonString = "{\"continentCode\":\"EU\"}"
         MockURLProtocol.stub = jsonString.data(using: .utf8)
         let sutAPIManager = APIManager(networking: sutNetworking)
-        let sut = MainViewModel()
+        let sut = MainViewModel(delegate: nil)
         
         let expectation = self.expectation(description: "MainViewModel get Geocode Info success")
         let latitude = 10.7789241
@@ -61,7 +61,7 @@ class MainViewModelTests: XCTestCase {
         let jsonString = "{\"continentCode\",\"EU\"}"
         MockURLProtocol.stub = jsonString.data(using: .utf8)
         let sutAPIManager = APIManager(networking: sutNetworking)
-        let sut = MainViewModel()
+        let sut = MainViewModel(delegate: nil)
         
         let expectation = self.expectation(description: "MainViewModel get Geocode Info success")
         let latitude = 10.7789241
@@ -81,7 +81,7 @@ class MainViewModelTests: XCTestCase {
         let jsonString = "{\"status\": \"ok\", \"data\": {\"aqi\": 25}}"
         MockURLProtocol.stub = jsonString.data(using: .utf8)
         let sutAPIManager = APIManager(networking: sutNetworking)
-        let sut = MainViewModel()
+        let sut = MainViewModel(delegate: nil)
         
         let expectation = self.expectation(description: "MainViewModel get Air Quality success")
         let latitude = 10.7789241
@@ -103,7 +103,7 @@ class MainViewModelTests: XCTestCase {
         let jsonString = "{\"status\": \"ok\" : \"data\": {\"aqi\": 25}}"
         MockURLProtocol.stub = jsonString.data(using: .utf8)
         let sutAPIManager = APIManager(networking: sutNetworking)
-        let sut = MainViewModel()
+        let sut = MainViewModel(delegate: nil)
         
         let expectation = self.expectation(description: "MainViewModel get Air Quality fail")
         let latitude = 10.7789241
@@ -124,11 +124,37 @@ class MainViewModelTests: XCTestCase {
         let longitude = 106.6880843
         let centerMapCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         
-        let sut = MainViewModel()
+        let sut = MainViewModel(delegate: nil)
         let info = sut.saveSearchPoint(locValue: centerMapCoordinate, geoData: GeocodeData())
         
         XCTAssertNotNil(info, "CoordinateTADA should not be nil")
         XCTAssertNotNil(info.latitude, "CoordinateTADA should not be nil")
         XCTAssertNotNil(info.longitude, "CoordinateTADA should not be nil")
+    }
+    
+    func testMainViewModel_WhenUserLocatoinService() {
+        
+        class FakeLocationManager: CLLocationManager{
+            
+        }
+        class FakeLocationManagerDelegate:NSObject, CLLocationManagerDelegate{
+            func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+                let loc = locations.first!
+                let mockDelegate = MockMainViewModelDelegate()
+                let sut = MainViewModel(delegate: mockDelegate)
+                print("mock location is \(loc.coordinate.latitude), \(loc.coordinate.longitude)")
+                XCTAssertEqual(loc.coordinate.latitude, 10.7789241)
+                sut.delegate?.finishGetLocation(locValue: loc.coordinate)
+                XCTAssertTrue(mockDelegate.isCallFinishGetLocation)
+            }
+        }
+        let locationMgr = CLLocationManager()
+        var locationHelper = HelperLocationManager(locationManager: locationMgr)
+        
+        let fakeDelegate = FakeLocationManagerDelegate()
+        let fakeLocationManager = FakeLocationManager()
+        locationHelper = HelperLocationManager(locationManager: fakeLocationManager)
+        locationHelper.locationManager.delegate = fakeDelegate
+        ((locationHelper.locationManager.delegate) as! FakeLocationManagerDelegate).locationManager(locationHelper.locationManager, didUpdateLocations:  [CLLocation(latitude: 10.7789241,longitude: 106.6880843)])
     }
 }

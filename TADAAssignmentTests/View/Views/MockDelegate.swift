@@ -34,3 +34,10 @@ class MockLocationInfoViewDelegate: NSObject, LocationInfoViewDelegate {
         isBackCall = true
     }
 }
+
+class MockMainViewModelDelegate: NSObject, MainViewModelDelegate {
+    var isCallFinishGetLocation: Bool = false
+    func finishGetLocation(locValue: CLLocationCoordinate2D) {
+        isCallFinishGetLocation = true
+    }
+}

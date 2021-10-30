@@ -72,10 +72,29 @@ class CDCoordinateManagerTests: XCTestCase {
         let info = coordinateManager.saveCoordinate(locValue: centerMapCoordinate, geoData: GeocodeData())
         
         XCTAssertNotNil(info)
+        
         let listCoordinate = coordinateManager.getCoordinatesList()
     
         XCTAssertNotNil(listCoordinate)
         XCTAssertTrue(listCoordinate?.count == 1)
+    }
+    
+    func testCoordinateManager_WhenGetCoordinateListFail_ShouldReturnNil() {
+        let latitude = 10.7789241
+        let longitude = 106.6880843
+        let centerMapCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        let info = coordinateManager.saveCoordinate(locValue: centerMapCoordinate, geoData: GeocodeData())
+        
+        XCTAssertNotNil(info)
+        
+        let mockContext = MockNSManagedObjectContext()
+        coordinateManager = CDCoordinateManager(
+            managedObjectContext: mockContext,
+            coreDataStack: coreDataStack)
+        
+        let listCoordinate = coordinateManager.getCoordinatesList()
+    
+        XCTAssertNil(listCoordinate)
     }
     
     func testCoordinateManager_WhenUpdateCoordinateSuccess_ShouldReturnSuccess() {
