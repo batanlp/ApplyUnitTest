@@ -44,6 +44,16 @@
                </Test>
             </SkippedTests>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "48B032C627300B8B00CC5AF6"
+               BuildableName = "TADAAssignmentUITests.xctest"
+               BlueprintName = "TADAAssignmentUITests"
+               ReferencedContainer = "container:TADAAssignment.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
