@@ -14,11 +14,14 @@ class ViewControllerInitData {
     
     var storyboard: UIStoryboard!
     var sutMainViewController: MainViewController!
+    var sutHistoryViewcontroller: HistorySetCoordinateViewController!
     var centerMapCoordinate: CLLocationCoordinate2D!
     
     init() {
         storyboard = UIStoryboard(name: "Main", bundle: nil)
         sutMainViewController = storyboard.instantiateViewController(identifier: "MainViewController") as? MainViewController
+        
+        sutHistoryViewcontroller = storyboard.instantiateViewController(identifier: "HistorySetCoordinateViewController") as? HistorySetCoordinateViewController
         
         
         let latitude = 12.7789241
@@ -28,5 +31,9 @@ class ViewControllerInitData {
     
     func loadMainViewController() {
         sutMainViewController?.loadViewIfNeeded()
+    }
+    
+    func loadHistoryViewController() {
+        sutHistoryViewcontroller.loadViewIfNeeded()
     }
 }

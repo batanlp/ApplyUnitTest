@@ -38,6 +38,11 @@
                BlueprintName = "TADAAssignmentTests"
                ReferencedContainer = "container:TADAAssignment.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "MainViewControllerTests/testPushViewControlerWithSpyNavigationController()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>

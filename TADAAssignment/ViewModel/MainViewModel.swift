@@ -12,6 +12,15 @@ import CoreData
 
 protocol MainViewModelDelegate: NSObjectProtocol {
     func finishGetLocation(locValue: CLLocationCoordinate2D)
+    
+}
+
+protocol MainViewModelProtocol {
+    func getGeocodeInfo(apiManager: APIManager, locValue: CLLocationCoordinate2D, onSuccess: (() -> ())?, onError: ((String?) -> ())?)
+    func detectLocation()
+    func getAirQuality(apiManager: APIManager, locValue: CLLocationCoordinate2D, onSuccess: ((_ data: Any?) -> ())?, onError: ((String?) -> ())?)
+    func getGeocodeData() -> GeocodeData?
+    func saveSearchPoint(locValue: CLLocationCoordinate2D, geoData: GeocodeData) -> CoordinateTADA
 }
 
 class MainViewModel: NSObject {
@@ -30,7 +39,11 @@ class MainViewModel: NSObject {
     }
 }
 
-extension MainViewModel {
+extension MainViewModel: MainViewModelProtocol {
+    func getGeocodeData() -> GeocodeData? {
+        return self.geoCodeData
+    }
+    
     func getGeocodeInfo(apiManager: APIManager = APIManager(), locValue: CLLocationCoordinate2D, onSuccess: (() -> ())?, onError: ((String?) -> ())?) {
         apiManager.getGeocodeInfo(lat: locValue.latitude.description, long: locValue.longitude.description, onSuccess: { response in
             self.geoCodeData = response as? GeocodeData

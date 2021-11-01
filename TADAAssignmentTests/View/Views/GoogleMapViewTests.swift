@@ -68,14 +68,14 @@ class GoogleMapViewTests: XCTestCase {
  */
         initData.sutMainViewController.viewGoogleMap.updateLocation(locValue: initData.centerMapCoordinate)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
             XCTAssertEqual(self.initData.sutMainViewController.viewGoogleMap.mapView?.camera.target.latitude, 12.7789241)
         }
     }
     
     func testGoogleMapview_WhenPutMarker_ShouldHaveMarkerAtLocation() throws {
         initData.sutMainViewController.viewGoogleMap.putMarker(locValue: initData.centerMapCoordinate, info: nil)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
             XCTAssertEqual(self.initData.sutMainViewController.viewGoogleMap.mapView?.camera.target.latitude, 12.7789241)
         }
     }

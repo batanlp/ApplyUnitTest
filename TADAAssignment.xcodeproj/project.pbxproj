@@ -36,6 +36,9 @@
 		48725A6727146055004EDE78 /* GPS.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 48725A6627146055004EDE78 /* GPS.gpx */; };
 		48725A6A271498FB004EDE78 /* GeocodeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48725A69271498FB004EDE78 /* GeocodeData.swift */; };
 		48725A6C2714A278004EDE78 /* PopupDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48725A6B2714A278004EDE78 /* PopupDialog.swift */; };
+		48A041D9272D4EE900E0D88D /* MockMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A041D8272D4EE900E0D88D /* MockMainViewModel.swift */; };
+		48B032C0272E501200CC5AF6 /* SpyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B032BF272E501200CC5AF6 /* SpyNavigationController.swift */; };
+		48B032C2272EB22200CC5AF6 /* HistorySetCoordinateViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B032C1272EB22200CC5AF6 /* HistorySetCoordinateViewControllerTests.swift */; };
 		48B4C9D4271553C500025020 /* Variable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4C9D3271553C500025020 /* Variable+Extension.swift */; };
 		48B4C9D62715980400025020 /* AirQualityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B4C9D52715980400025020 /* AirQualityData.swift */; };
 		48B4C9E12718177A00025020 /* LocalDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 48B4C9DF2718177A00025020 /* LocalDB.xcdatamodeld */; };
@@ -108,6 +111,9 @@
 		48725A6627146055004EDE78 /* GPS.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = GPS.gpx; sourceTree = "<group>"; };
 		48725A69271498FB004EDE78 /* GeocodeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocodeData.swift; sourceTree = "<group>"; };
 		48725A6B2714A278004EDE78 /* PopupDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupDialog.swift; sourceTree = "<group>"; };
+		48A041D8272D4EE900E0D88D /* MockMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMainViewModel.swift; sourceTree = "<group>"; };
+		48B032BF272E501200CC5AF6 /* SpyNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpyNavigationController.swift; sourceTree = "<group>"; };
+		48B032C1272EB22200CC5AF6 /* HistorySetCoordinateViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySetCoordinateViewControllerTests.swift; sourceTree = "<group>"; };
 		48B4C9D3271553C500025020 /* Variable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Variable+Extension.swift"; sourceTree = "<group>"; };
 		48B4C9D52715980400025020 /* AirQualityData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityData.swift; sourceTree = "<group>"; };
 		48B4C9E02718177A00025020 /* LocalDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalDB.xcdatamodel; sourceTree = "<group>"; };
@@ -471,6 +477,7 @@
 			isa = PBXGroup;
 			children = (
 				48B4CA1F272939AD00025020 /* MainViewControllerTests.swift */,
+				48B032C1272EB22200CC5AF6 /* HistorySetCoordinateViewControllerTests.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -491,6 +498,8 @@
 			children = (
 				48B4CA2D272AC99900025020 /* MockData.swift */,
 				48B4CA2F272BB45000025020 /* MockLocationManager.swift */,
+				48A041D8272D4EE900E0D88D /* MockMainViewModel.swift */,
+				48B032BF272E501200CC5AF6 /* SpyNavigationController.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -701,17 +710,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				48B4CA0E2726973800025020 /* MockURLSession.swift in Sources */,
+				48A041D9272D4EE900E0D88D /* MockMainViewModel.swift in Sources */,
 				48B4CA1A2728329000025020 /* TestCoreDataStack.swift in Sources */,
 				48B4CA0A272280D600025020 /* MockURLProtocol.swift in Sources */,
 				48B4CA2E272AC99900025020 /* MockData.swift in Sources */,
 				48B4CA132726EE0900025020 /* MainViewModelTests.swift in Sources */,
 				48B4CA1C272834B300025020 /* CDCoordinateManagerTests.swift in Sources */,
 				48B4CA29272A519A00025020 /* MockDelegate.swift in Sources */,
+				48B032C0272E501200CC5AF6 /* SpyNavigationController.swift in Sources */,
 				48B4CA082721236200025020 /* NetworkServicesTests.swift in Sources */,
 				48B4CA2327295C1700025020 /* SetPointViewTests.swift in Sources */,
 				48B4CA30272BB45000025020 /* MockLocationManager.swift in Sources */,
 				48B4CA2B272AAF3700025020 /* ViewControllerInitData.swift in Sources */,
 				48B4CA2527295C4A00025020 /* GoogleMapViewTests.swift in Sources */,
+				48B032C2272EB22200CC5AF6 /* HistorySetCoordinateViewControllerTests.swift in Sources */,
 				48B4CA20272939AD00025020 /* MainViewControllerTests.swift in Sources */,
 				48B4CA2727295C7700025020 /* LocationInfoViewTests.swift in Sources */,
 			);

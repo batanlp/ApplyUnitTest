@@ -10,7 +10,7 @@ import CoreLocation
 
 class MainViewController: BaseViewController {
     
-    var viewModel: MainViewModel!
+    var viewModel: MainViewModelProtocol!
     @IBOutlet weak var viewGoogleMap: GoogleMapView!
     @IBOutlet weak var viewSetPoint: SetPointView!
     @IBOutlet weak var viewResult: LocationInfoView!
@@ -39,7 +39,7 @@ extension MainViewController {
             let longitude = geoData.longitude
             let centerMapCoordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
             
-            self.viewModel.getAirQuality(locValue: centerMapCoordinate, onSuccess: { data in
+            self.viewModel.getAirQuality(apiManager: APIManager(), locValue: centerMapCoordinate, onSuccess: { data in
                 LogManager.shared.logConsole(msg: "Done get AirQuality for index \(index)")
                 self.viewResult.setLocationInformation(index: index, airData: data as! AirQualityData, geoData: self.viewSetPoint.geoData[index])
                 group.leave()
@@ -98,8 +98,8 @@ extension MainViewController: HistorySetCoordinateViewControllerDelegate {
 extension MainViewController: MainViewModelDelegate {
     func finishGetLocation(locValue: CLLocationCoordinate2D) {
         self.viewGoogleMap.updateLocation(locValue: locValue)
-        self.viewModel.getGeocodeInfo(locValue: locValue, onSuccess: {
-            self.viewGoogleMap.putMarker(locValue: locValue, info: self.viewModel.geoCodeData!)
+        self.viewModel.getGeocodeInfo(apiManager: APIManager(), locValue: locValue, onSuccess: {
+            self.viewGoogleMap.putMarker(locValue: locValue, info: self.viewModel.getGeocodeData()!)
         }, onError: { msg in
             PopupDialog.shared.showPopupDialog(vc: self, msg: msg!)
         })
